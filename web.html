@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELNORA STUDIO | Luxury Photography Jaipur</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #c6a66b;
+    --black: #10100f;
+    --cream: #f4efe5;
+}
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 25px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    border-bottom: 1px solid #ffffff20;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 100vh;
+    background:
+    linear-gradient(#0008, #0009),
+    url('https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=2000&q=90');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 70px;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.tagline {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 9vw, 105px);
+    letter-spacing: 7px;
+    line-height: 1;
+}
+
+.hero h2 {
+    font-size: 25px;
+    margin-top: 25px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    font-size: 13px;
+    line-height: 2;
+    color: #ddd;
+    margin: 25px auto 35px;
+    max-width: 650px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 30px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+    margin: 5px;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: black;
+}
+
+section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.section-title h2 {
+    font-size: clamp(38px, 5vw, 55px);
+    margin-top: 15px;
+}
+
+.section-title p {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 2;
+    margin: 15px auto 0;
+    max-width: 650px;
+}
+
+.locations {
+    background: #171715;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.location-card {
+    background: #22211e;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.location-card:hover {
+    transform: translateY(-8px);
+}
+
+.location-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+}
+
+.location-card:hover img {
+    transform: scale(1.04);
+}
+
+.location-info {
+    padding: 25px;
+}
+
+.location-info h3 {
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.location-info p {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.9;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.service {
+    border: 1px solid #ffffff25;
+    padding: 40px 25px;
+    text-align: center;
+    transition: .3s;
+}
+
+.service:hover {
+    border-color: var(--gold);
+    background: #1c1b18;
+}
+
+.service .number {
+    color: var(--gold);
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.service h3 {
+    font-size: 25px;
+    margin: 15px 0;
+}
+
+.service p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.gallery {
+    background: #171715;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery-grid img:hover {
+    opacity: .7;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.about img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-text span {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.about-text h2 {
+    font-size: 52px;
+    margin: 20px 0;
+}
+
+.about-text p {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 2.1;
+    margin-bottom: 15px;
+}
+
+.benefits {
+    background: #171715;
+    text-align: center;
+}
+
+.benefit-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.benefit {
+    padding: 25px;
+    border-bottom: 1px solid #c6a66b50;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.benefit::first-letter {
+    color: var(--gold);
+}
+
+.contact {
+    text-align: center;
+    background:
+    linear-gradient(#000b, #000c),
+    url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact h2 {
+    font-size: clamp(45px, 7vw, 75px);
+    margin: 20px 0;
+}
+
+.contact p {
+    color: #ddd;
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.contact-details {
+    margin-top: 45px;
+    line-height: 2.5;
+    font-size: 13px;
+}
+
+.contact-details a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    background: #080808;
+}
+
+footer h2 {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-size: 28px;
+}
+
+footer p {
+    color: #777;
+    font-size: 10px;
+    margin-top: 15px;
+    letter-spacing: 2px;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 99;
+}
+
+@media(max-width: 900px) {
+    .location-grid,
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    nav {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 23px;
+        letter-spacing: 3px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #10100f;
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+
+    .location-grid,
+    .services-grid,
+    .gallery-grid,
+    .benefit-list {
+        grid-template-columns: 1fr;
+    }
+
+    .location-card img {
+        height: 260px;
+    }
+
+    .gallery-grid img {
+        height: 300px;
+    }
+
+    .about img {
+        height: 350px;
+    }
+
+    .hero h1 {
+        letter-spacing: 3px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">VELNORA</div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">HOME</a>
+        <a href="#locations" onclick="closeMenu()">LOCATIONS</a>
+        <a href="#services" onclick="closeMenu()">SERVICES</a>
+        <a href="#gallery" onclick="closeMenu()">GALLERY</a>
+        <a href="#about" onclick="closeMenu()">ABOUT</a>
+        <a href="#contact" onclick="closeMenu()">CONTACT</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<header class="hero" id="home">
+    <div class="hero-content">
+        <div class="tagline">LUXURY PHOTOGRAPHY • JAIPUR • INDIA</div>
+
+        <h1>VELNORA<br>STUDIO</h1>
+
+        <h2>YOUR STORY, BEAUTIFULLY CAPTURED.</h2>
+
+        <p>
+        Luxury Photography & Cinematic Experiences in Jaipur, Rajasthan.
+        Discover the beauty of Jaipur through timeless photographs
+        and cinematic films. We turn your special moments into
+        memories that last forever.
+        </p>
+
+        <a href="#contact" class="btn">BOOK YOUR PHOTOSHOOT</a>
+        <a href="#gallery" class="btn">EXPLORE OUR WORK</a>
+    </div>
+</header>
+
+<!-- LOCATIONS -->
+
+<section class="locations" id="locations">
+
+    <div class="section-title">
+        <span>THE PINK CITY EXPERIENCE</span>
+        <h2>Capture The Magic Of Jaipur</h2>
+        <p>
+        Experience the royal charm of Jaipur with professional
+        photography at its most iconic heritage locations.
+        </p>
+    </div>
+
+    <div class="location-grid">
+
+        <div class="location-card">
+            <img src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=900&q=85" alt="Hawa Mahal">
+            <div class="location-info">
+                <h3>Hawa Mahal</h3>
+                <p>The Palace of Winds. Capture unforgettable portraits against Jaipur's iconic pink architecture.</p>
+            </div>
+        </div>
+
+        <div class="location-card">
+            <img src="https://images.pexels.com/photos/20076344/pexels-photo-20076344/free-photo-of-amer-fort-in-india.jpeg" alt="Amber Fort">
+            <div class="location-info">
+                <h3>Amber Fort</h3>
+                <p>Step into royal Rajasthan with magnificent architecture and beautiful courtyards.</p>
+            </div>
+        </div>
+
+        <div class="location-card">
+            <img src="https://ilovejaipur.city/_next/image/?url=https%3A%2F%2Filovejaipur.city%2Fmedia%2Fposts%2F2025%2F11%2Fjal-mahal-jaipur-palace_oxpwgQB.webp&w=3840&q=75" alt="Jal Mahal">
+            <div class="location-info">
+                <h3>Jal Mahal</h3>
+                <p>Beautiful palace views surrounded by the peaceful waters of Man Sagar Lake.</p>
+            </div>
+        </div>
+
+        <div class="location-card">
+            <img src="https://patrikagate.org/wp-content/uploads/2025/01/Patrika_gate_Jaipur-banner.jpg" alt="Patrika Gate">
+            <div class="location-info">
+                <h3>Patrika Gate</h3>
+                <p>Celebrate the colourful culture and traditional artwork of Rajasthan.</p>
+            </div>
+        </div>
+
+        <div class="location-card">
+            <img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=900&q=85" alt="City Palace">
+            <div class="location-info">
+                <h3>City Palace</h3>
+                <p>Discover the royal heritage of Jaipur through elegant and timeless portraits.</p>
+            </div>
+        </div>
+
+        <div class="location-card">
+            <img src="https://zbanmukljbifxbgmjngh.supabase.co/storage/v1/object/public/place-images/gatore-ki-chhatriyan/1767375973924-5t8ppy.webp" alt="Gaitor">
+            <div class="location-info">
+                <h3>Gaitor Ki Chhatriyan</h3>
+                <p>Explore beautiful marble cenotaphs, intricate carvings and peaceful surroundings.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-title">
+        <span>WHAT WE CREATE</span>
+        <h2>Our Photography Services</h2>
+        <p>Every moment deserves to be captured beautifully.</p>
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service">
+            <div class="number">01</div>
+            <h3>Tourist Photography</h3>
+            <p>Professional photoshoots at Jaipur's most beautiful heritage locations.</p>
+        </div>
+
+        <div class="service">
+            <div class="number">02</div>
+            <h3>Couple Photography</h3>
+            <p>Beautiful candid moments, romantic portraits and natural expressions.</p>
+        </div>
+
+        <div class="service">
+            <div class="number">03</div>
+            <h3>Pre-Wedding</h3>
+            <p>Celebrate your love story with photographs and cinematic films.</p>
+        </div>
+
+        <div class="service">
+            <div class="number">04</div>
+            <h3>Wedding Photography</h3>
+            <p>Every emotion, tradition and special moment captured forever.</p>
+        </div>
+
+        <div class="service">
+            <div class="number">05</div>
+            <h3>Cinematic Reels</h3>
+            <p>Creative Instagram reels, travel videos and cinematic memories.</p>
+        </div>
+
+        <div class="service">
+            <div class="number">06</div>
+            <h3>Fashion Portraits</h3>
+            <p>Professional portraits, lifestyle photography and personal shoots.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-title">
+        <span>OUR CREATIVE WORLD</span>
+        <h2>Explore Our Gallery</h2>
+        <p>A collection of beautiful moments and timeless memories.</p>
+    </div>
+
+    <div class="gallery-grid">
+        <img src="C:\Users\Admin\Desktop\12 5.JPG" alt="Wedding photography">
+        <img src="C:\Users\Admin\Desktop\04.JPG" alt="Wedding couple">
+        <img src="C:\Users\Admin\Desktop\DSC05549.JPEG" alt="Wedding celebration">
+        <img src="C:\Users\Admin\Desktop\11.JPG" alt="Couple photography">
+        <img src="C:\Users\Admin\Desktop\02.jpg" alt="Couple portrait">
+        <img src="C:\Users\Admin\Desktop\IMG_2805.PNG" alt="Photography">
+        <img src="C:\Users\Admin\Desktop\01 3.JPG" alt="Wedding couple">
+        <img src="C:\Users\Admin\Desktop\DSC05994.JPG" alt="Wedding couple">
+        <img src="C:\Users\Admin\Desktop\DSC06083.JPEG" alt="Wedding couple">
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1000&q=85" alt="Professional photography camera">
+
+    <div class="about-text">
+        <span>OUR PHILOSOPHY</span>
+        <h2>More Than Photographs – An Experience</h2>
+
+        <p>
+        At Velnora Studio, we believe every person has a unique story.
+        Our goal is to make your photography experience comfortable,
+        enjoyable and memorable.
+        </p>
+
+        <p>✦ Professional photography.</p>
+        <p>✦ Natural and candid moments.</p>
+        <p>✦ Creative poses and portrait guidance.</p>
+        <p>✦ Beautifully edited photographs.</p>
+        <p>✦ Cinematic reels and videos.</p>
+        <p>✦ Customized photoshoot packages.</p>
+    </div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="benefits">
+
+    <div class="section-title">
+        <span>THE VELNORA DIFFERENCE</span>
+        <h2>Why Choose Velnora Studio?</h2>
+    </div>
+
+    <div class="benefit-list">
+        <div class="benefit">Professional & Creative Photography</div>
+        <div class="benefit">Local Jaipur Photography Experience</div>
+        <div class="benefit">Beautiful Heritage Locations</div>
+        <div class="benefit">Friendly Photoshoot Experience</div>
+        <div class="benefit">Customized Packages</div>
+        <div class="benefit">Memories With Passion & Perfection</div>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <span class="tagline">YOUR STORY STARTS HERE</span>
+
+    <h2>Let's Create Something Beautiful</h2>
+
+    <p>
+    Visiting Jaipur? Planning your wedding? Or simply looking
+    for beautiful photographs? We would love to capture your story.
+    </p>
+
+    <a href="https://wa.me/91YOURNUMBER" class="btn">
+        BOOK YOUR EXPERIENCE TODAY
+    </a>
+
+    <div class="contact-details">
+        <h3>VELNORA STUDIO</h3>
+        <p>Jaipur, Rajasthan, India</p>
+
+        <p>WhatsApp:
+        <a href="https://wa.me/91YOURNUMBER">CONTACT US</a>
+        </p>
+
+        <p>Instagram:
+        <a href="https://www.instagram.com/thephotoclick2k26?rpxt=MThiZ2VyODJwenE1Zw%3D%3D&utm_source=qr" target="_blank">FOLLOW NOW</a>
+        </p>
+
+        <p>Email:
+        <a href=""></a>
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    <h2>VELNORA STUDIO</h2>
+    <p>YOUR STORY, BEAUTIFULLY CAPTURED.</p>
+    <p>© 2026 VELNORA STUDIO. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<a href="https://wa.me/91YOURNUMBER" class="whatsapp" target="_blank">
+    WhatsApp Booking
+</a>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
